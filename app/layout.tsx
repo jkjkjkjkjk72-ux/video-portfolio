@@ -7,14 +7,50 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jkjkjkjkjk72-ux.github.io/video-portfolio"),
   title: {
-    default: "Portfolio — Video Director",
-    template: "%s — Portfolio",
+    default: "Studio — Video Director",
+    template: "%s — Studio",
   },
-  description: "Multi-genre video portfolio. Commercials, documentaries, music videos, and more.",
+  description:
+    "Multi-genre video portfolio. Commercials, documentaries, music videos, and short films based in Seoul.",
+  keywords: [
+    "video director",
+    "cinematographer",
+    "commercial director",
+    "documentary",
+    "music video",
+    "Seoul",
+    "영상 감독",
+    "촬영감독",
+  ],
+  authors: [{ name: "Studio" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
+    siteName: "Studio",
+    title: "Studio — Video Director",
+    description:
+      "Multi-genre video portfolio. Commercials, documentaries, music videos, and short films based in Seoul.",
+    images: [
+      {
+        url: "https://placehold.co/1200x630/0a0a0a/f5f5f5?text=Studio",
+        width: 1200,
+        height: 630,
+        alt: "Studio — Video Director",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Studio — Video Director",
+    description:
+      "Multi-genre video portfolio. Commercials, documentaries, music videos, and short films based in Seoul.",
+    images: ["https://placehold.co/1200x630/0a0a0a/f5f5f5?text=Studio"],
   },
 };
 
