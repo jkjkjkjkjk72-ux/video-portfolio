@@ -2,11 +2,14 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import WorkGrid from "@/components/WorkGrid";
-import { works, featuredReel } from "@/data/works";
+import { featuredReel } from "@/data/works";
+import { getFeaturedWorks } from "@/lib/works";
 
-const selectedWorks = works.slice(0, 4);
+export const revalidate = 300; // ISR: 5분
 
-export default function Home() {
+export default async function Home() {
+  const selectedWorks = await getFeaturedWorks(4);
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -22,7 +25,13 @@ export default function Home() {
           — Selected Work
         </p>
 
-        <WorkGrid works={selectedWorks} columns={2} />
+        {selectedWorks.length > 0 ? (
+          <WorkGrid works={selectedWorks} columns={2} />
+        ) : (
+          <p className="font-mono text-sm text-gray-400 py-10">
+            No featured works yet.
+          </p>
+        )}
 
         <div className="mt-12 flex justify-end">
           <Link
